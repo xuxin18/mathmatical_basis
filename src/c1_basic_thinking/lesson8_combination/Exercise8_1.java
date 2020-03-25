@@ -9,12 +9,13 @@ import java.util.Arrays;
  * @description 假设现在需要设计一个抽奖系统。
  *              需要依次从10个人中，抽取三等奖 3 名，二等奖 2名和一等奖 1 名。
  *              请列出所有可能的组合，需要注意的每人最多只能被抽中 1 次。
- *              
+ *
  *              所有可能的组合有 C(10,3)*C(9,2)*C(8,1) 种
  */
 public class Exercise8_1 {
 
     public static void main(String[] args) {
+        long start = System.currentTimeMillis();
         ArrayList<String> people = new ArrayList<String>(Arrays.asList("a","b","c", "d","e","f", "g","h","i", "j"));
         ArrayList<ArrayList> lists1 = combination(people, new ArrayList<>(), 3, new ArrayList<>());
 
@@ -34,6 +35,8 @@ public class Exercise8_1 {
             }
         }
         System.out.println("共有" + kind + "种情况");
+        long end = System.currentTimeMillis();
+        System.out.println(end-start);
     }
 
     public static ArrayList<ArrayList> combination(ArrayList<String> people, ArrayList<String> luckey, int m, ArrayList<ArrayList> result){
